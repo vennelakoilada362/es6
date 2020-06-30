@@ -1,41 +1,16 @@
 "use strict"
 
-function getDate(method, url){
-  return new Promise(function(resolve, reject){
-    var xhr = new XMLHttpRequest();
-    xhr.open(method, url);
-    xhr.onload = function(){
-      if(this.status >= 200 && this.status < 300){
-      resolve(xhr.response);
-    }else {
-      reject({
-        status: this.status,
-        statusText: xhr.statusText
-      });
-    }
-  };
-  xhr.onerror = function(){
-    reject({
-      status: this.status,
-      statusText: xhr.statusText
-    });
-  };
-  xhr.send();
-});
+function *g1(){
+  console.log('Hello');
+  yield 'Yield 1 Ran..';
+  console.log('World');
+  yield 'Yeild 2 Ran...';
+  return 'Returned..';
 }
 
-getDate('Get', 'http://jsonplaceholder.typicode.com/todos').then(function(data){
- let todos = JSON.parse(data)
- let output = '';
- for(let todo of todos){
-   output +=`
-   <li>
-     <h3>${todo.title}</h3>
-     <p>Completed: ${todo.completed}</p>
-   </li>
-   `;
- }
- document.getElementById('template').innerHTML = output;
-}).catch(function(err){
-  console.log(err);
-});
+var g = g1();
+
+
+for(let val of g){
+  console.log(val);
+}
