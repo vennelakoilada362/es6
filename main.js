@@ -1,32 +1,13 @@
 "use strict"
 
-class User{
-    constructor(username, email, password){
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
+let name = 'vennela';
 
-static countUsers(){
-    console.log('There are 50 users');
+function makeUppercase(word){
+    return word.toUpperCase();
 }
 
-register(){
-    console.log(this.username+' is now registered')
-}
+let template =
+`<h1>${makeUppercase('Hello')}, ${name}</h1>
+<p>This is a simple template in JS</p>`;
 
-}
-
-class Member extends User{
-    constructor(username, email, password, memberPackage){
-        super(username, email, password);
-        this.package = memberPackage;
-    }
-
-getPackage(){
- console.log(this.username+ 'is subscribed to the '+this.package+' package');
-}
-}
-
-let vennela = new Member('vennela', 'rashi@gmail.com',12345);
-vennela.register();
+document.getElementById('template').innerHTML = template;
