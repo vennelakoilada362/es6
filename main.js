@@ -1,13 +1,5 @@
 "use strict"
 
-let name = 'vennela';
+let thestring = 'Hello,My name is vennela & i love coding';
 
-function makeUppercase(word){
-    return word.toUpperCase();
-}
-
-let template =
-`<h1>${makeUppercase('Hello')}, ${name}</h1>
-<p>This is a simple template in JS</p>`;
-
-document.getElementById('template').innerHTML = template;
+console.log(Number.isInteger(Infinity));
