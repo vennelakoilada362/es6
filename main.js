@@ -1,10 +1,38 @@
 "use strict"
 
-let args1 = [1,2,3];
-let args2 = [4,5,6];
 
-function test(){
-    console.log(args1+','+args2);
+let carWeakMap = new WeakMap();
+
+
+let key1 = {
+  id:1
 }
 
-test(...args1,...args2);
+
+let car1 = {
+  make: 'Honda',
+  model: 'Civic'
+}
+
+
+let key2 = {
+  id:2
+}
+
+
+let car2 = {
+  make: 'Toyota',
+  model: 'Camry'
+}
+
+
+carWeakMap.set(key1, car1);
+
+carWeakMap.set(key2, car2);
+
+
+
+carWeakMap.delete(key1);
+
+
+console.log(carWeakMap);
